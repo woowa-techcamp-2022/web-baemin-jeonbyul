@@ -1,0 +1,68 @@
+extends layout
+
+block stylesheet
+  link(rel='stylesheet', href='/stylesheets/main.css')
+
+block content
+  header
+    h2 My배민
+
+  img.banner(src='images/banner.png')
+
+  a.link-box.login
+    img(src='images/profile.png')
+    span 로그인해주세요
+
+  ul.tab 
+    li
+      a.tab__link 
+        img(src='images/point.png')
+        span 포인트
+    li
+      a.tab__link
+        img(src='images/coupon.png')
+        span 쿠폰함
+    li
+      a.tab__link
+        img(src='images/present.png')
+        span 선물함
+    li
+      a.tab__link
+        img(src='images/heart.png')
+        span 찜
+    li
+      a.tab__link
+        img(src='images/order.png')
+        span 주문내역
+    li
+      a.tab__link
+        img(src='images/review.png')
+        span 리뷰관리 
+
+  hr
+
+  a.link-box.campaign 
+    img(src='images/sproud.png')
+    span 일회용품 덜 쓰기, 함께해요!
+  
+  hr
+
+  ul
+    li
+      a.link-box 
+        div.link-box__content
+          span.link-box__title.new-tag 배민페이 등록
+          span.link-box__text 배민페이로 결제하면 최대 5.5% 배민페이가 적립됩니다!
+    li 
+      a.link-box 
+        div.link-box__content
+          span.link-box__title.new-tag 가족계정 관리
+          span.link-box__text 결제수단을 공유하여 우리가족의 끼니를 챙겨주세요
+    li 
+      a.link-box
+        div.link-box__content
+          span.link-box__title 공지사항
+    li 
+      a.link-box 
+        div.link-box__content
+          span.link-box__title 배민커넥트 지원
