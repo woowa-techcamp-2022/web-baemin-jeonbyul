@@ -1,5 +1,24 @@
 extends layout
 
+block stylesheet
+  link(rel='stylesheet', href='/stylesheets/signin.css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+  div.main
+    form.login-form
+      input(placeholder='아이디 또는 이메일')
+      input(placeholder='비밀번호')
+      button.login-form__submit 로그인
+      div.login-form__link
+        a.side-line 아이디 찾기 
+        a 비밀번호 찾기
+
+    div.bottom
+      button.social-login 페이스북으로 로그인
+      button.social-login 네이버로 로그인
+      button.social-login Apple로 로그인
+
+      div 
+        span 혹시 배달의민족이 처음이신가요? 
+        a.signup-link 회원가입 
+    

@@ -3,11 +3,12 @@
   --color-white:#FFFFFF;
   --color-black:  #000000;
   --color-gray: #8A8A8A;
-  --color-silver : #cdcdcd; /*placeholder*/
+  --color-silver : #cdcdcd; /*placeholder & border*/
   --color-green: #4db864;
   --color-red: red;
   --color-pink:#e323a0;
   --color-mercury: #e9e9e9;
+  --color-baemin: #2AC1Bc;
 }
 
 
@@ -28,3 +29,19 @@ header {
   margin: 10px;
 } 
 
+input{
+  font-size: 1em;
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid var(--color-silver);
+  margin-top: 30px;
+
+}
+
+input::placeholder{
+  color: var(--color-silver);
+}
+
+button{
+  border:none;
+}
