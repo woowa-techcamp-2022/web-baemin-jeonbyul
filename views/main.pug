@@ -5,7 +5,7 @@ block stylesheet
 
 block content
   header
-    h2 My배민
+    h2 #{ userId ? `${userId} 환영합니다` : 'My배민'}
 
   img.banner(src='images/banner.png')
 

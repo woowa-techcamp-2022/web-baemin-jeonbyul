@@ -5,7 +5,8 @@ const router = express.Router();
 
 /* GET main page. */
 router.get('/', function(req, res, next) {
-  res.render('main');
+  const userId = req.cookies.userId
+  res.render('main',{userId});
 });
 
 /* GET signin page. */
