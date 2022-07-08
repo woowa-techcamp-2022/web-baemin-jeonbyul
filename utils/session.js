@@ -1,6 +1,8 @@
 
+import config from '../config/index.js'
 import LowDB from '../database/lowdb.js' 
 const sessionStore = new LowDB("session.json");
+
 sessionStore.connection();
 let interval = null;
 
@@ -34,25 +36,30 @@ const saveSession = (sessionId, userId) => {
 const updateSessionDate = (sessionId) => {
     const session = sessionStore.find(sessionId)
     session.updateDate = new Date();
+    sessionStore.create(sessionId, session)
 }
 
 
-export const cron = (ms) => {
-    ms = ms > 10000 ? ms : 10000 
+export const startSessionScheduler= (ms) => {
+    ms = ms > 1000 ? ms : 1000 
     interval = setInterval( () => {
         checkSessionValid();
     }, ms);
 }
 
-export const  checkSessionValid = () => {
-    const limit = 1 * 60 * 1000 //30 * 60 * 1000
-    const sessionIds = sessionStore.keys();
-    sessionIds.forEach( sessionId => { 
-        const updateDate = sessionStore.find(sessionId).updateDate
-        const nowDate = new Date();
+const  checkSessionValid = async () => {
+    const limit = config.sessionTimeOut
+    const sessions = await sessionStore.find();
+    const sessionIds =  Object.getOwnPropertyNames(sessions) 
+
+    sessionIds.forEach( async ( sessionId) => { 
+        const session = await sessionStore.find(sessionId)
+        const updateDate = new Date(session.updateDate).getTime()
+        const nowDate = new Date().getTime();
         if(nowDate - updateDate > limit){
             sessionStore.delete(sessionId)
         }
+
     }) 
 }
 

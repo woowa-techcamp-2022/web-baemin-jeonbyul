@@ -10,6 +10,9 @@ import apiRouter from './routes/api.js'
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
+import { startSessionScheduler } from './utils/session.js';
+
+
 var app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -26,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
+startSessionScheduler(1000) 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
