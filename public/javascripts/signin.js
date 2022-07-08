@@ -38,7 +38,7 @@ const handleErrorCheck = (userId, password) => {
         handleValidationError($passwordErr, "패스워드를 입력해 주세요.")
         isValid = false
     }else if(!isPassword(password) ){
-        handleValidationError($passwordErr, "잘못된 패스워드 입니다.")
+        handleValidationError($passwordErr, "8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합해주세요")
         isValid = false
     } 
     return isValid;
