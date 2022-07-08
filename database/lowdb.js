@@ -23,8 +23,13 @@ export default class LowDB {
     }
 
     async find(key){
-        const value = this.db.data[key]; 
-        return value;
+        if(key){
+            const value = this.db.data[key]; 
+            return value;
+        }else{
+            const value = this.db.data
+            return value
+        }
     }
 
     async delete(key){
