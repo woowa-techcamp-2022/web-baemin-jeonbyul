@@ -1,7 +1,7 @@
 
 //import config from '../../../config/index.js'
 //const API_END_POINT = config.API_END_POINT
-const API_END_POINT =  "http://localhost:3000/api"
+const API_END_POINT =  "/api"
 const statusErrorFromResponse = (res) => {
   if (res.status < 300) return '';
 
