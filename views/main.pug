@@ -5,11 +5,11 @@ block stylesheet
 
 block content
   header
-    h2 My배민
+    h2 #{ userId ? `${userId} 환영합니다` : 'My배민'}
 
   img.banner(src='images/banner.png')
 
-  a.link-box.login
+  a.link-box.login(href="/signin")
     img(src='images/profile.png')
     span 로그인해주세요
 

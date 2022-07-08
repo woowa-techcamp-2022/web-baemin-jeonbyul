@@ -1,14 +1,20 @@
 extends layout
 
+block scripts 
+  script(type="module" src="/javascripts/signin.js" )
+
 block stylesheet
   link(rel='stylesheet', href='/stylesheets/signin.css')
 
 block content
   div.main
     form.login-form
-      input(placeholder='아이디 또는 이메일')
-      input(placeholder='비밀번호')
-      button.login-form__submit 로그인
+      input(name="userId", id="userId", placeholder='아이디 또는 이메일')
+      span.userId-err.err 
+      input(name="password", id="password", placeholder='비밀번호' type="password")
+      span.password-err.err
+      button.login-form__submit(type="submit") 로그인
+      div.login-err.err
       div.login-form__link
         a.side-line 아이디 찾기 
         a 비밀번호 찾기

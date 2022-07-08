@@ -1,21 +1,24 @@
-var express = require('express');
-var router = express.Router();
-/* get pages */
+
+import express  from 'express';
+
+const router = express.Router();
 
 /* GET main page. */
 router.get('/', function(req, res, next) {
-  res.render('main', { title: 'main' });
-});
-
-/* GET signup page. */
-router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'signup' });
+  const userId = req.cookies.userId
+  res.render('main',{userId});
 });
 
 /* GET signin page. */
-router.get('/signin', function(req, res, next) {
-  res.render('signin', { title: 'signin' });
+router.get('/signin',function(req, res, next) {
+  res.render('signin');
 });
 
 
-module.exports = router;
+/* GET signup page. */
+router.get('/signup',function(req, res, next) {
+  res.render('signup');
+});
+
+
+export default router;
